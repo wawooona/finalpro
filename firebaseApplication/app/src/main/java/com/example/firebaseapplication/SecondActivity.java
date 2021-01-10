@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.firebaseapplication.fragment.FragmentAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class SecondActivity extends AppCompatActivity {
@@ -19,8 +20,17 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+
+
+
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         ViewPager viewPager = findViewById(R.id.viewPager);
+
+        tabLayout.setupWithViewPager(viewPager);
+        FragmentAdapter fa = new FragmentAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(fa);
+
+
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_home_24);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_chat_24);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_label_important_24);
